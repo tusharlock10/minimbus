@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.draggable-header {
+    --wails-draggable: drag;
+    widows: 1;
+}

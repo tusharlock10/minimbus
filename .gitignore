@@ -25,4 +25,7 @@ go.work.sum
 .env
 
 dist
-build
+build/bin
+build/windows
+build/macos
+build/linux

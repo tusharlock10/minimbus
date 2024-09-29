@@ -3,6 +3,7 @@ package main
 import (
 	"embed"
 	"log"
+	"runtime"
 
 	"github.com/wailsapp/wails/v2"
 	"github.com/wailsapp/wails/v2/pkg/logger"
@@ -22,6 +23,11 @@ func main() {
 	// Create an instance of the app structure
 	app := NewApp()
 
+	isWindows := false
+	if runtime.GOOS == "windows" {
+		isWindows = true
+	}
+
 	// Create application with options
 	err := wails.Run(&options.App{
 		Title:             "Minimbus",
@@ -31,6 +37,7 @@ func main() {
 		MinHeight:         300,
 		DisableResize:     false,
 		Fullscreen:        false,
+		Frameless:         isWindows,
 		CSSDragProperty:   "widows",
 		CSSDragValue:      "1",
 		StartHidden:       false,
@@ -52,13 +59,13 @@ func main() {
 		},
 		// Windows platform specific options
 		Windows: &windows.Options{
-			WebviewIsTransparent:              false,
-			WindowIsTranslucent:               false,
-			DisableWindowIcon:                 false,
-			WebviewUserDataPath:               "",
+			WebviewIsTransparent:              true,
+			WindowIsTranslucent:               true,
+			DisableWindowIcon:                 true,
 			ZoomFactor:                        1.0,
 			DisablePinchZoom:                  true,
 			DisableFramelessWindowDecorations: true,
+			BackdropType:                      windows.Acrylic,
 		},
 		// Mac platform specific options
 		Mac: &mac.Options{

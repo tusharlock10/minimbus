@@ -1,11 +1,11 @@
 import { MinimFileExplorer } from '@/components/ui/MinimFileExplorer';
+import { MinimNavBar } from "@/components/ui/MinimNavBar";
 import { MinimSidebar } from "@/components/ui/MinimSidebar";
-import { MinimnNavBar } from "@/components/ui/MininNavBar";
 
 export default function Home() {
   return (
     <>
-      <MinimnNavBar />
+      <MinimNavBar />
       <div className="flex flex-cols min-h-screen">
         <MinimSidebar />
         <MinimFileExplorer />

@@ -1,10 +1,11 @@
 "use client";
 
-import { Accordion, AccordionItem, Button, Divider } from "@nextui-org/react";
+import { MinimFileExplorer } from "@/components/ui/MinimFileExplorer";
 import { useState } from "react";
+import { Divider } from "@nextui-org/divider";
 
 export const MinimSidebar = () => {
-  const [sidebarWidth, setSidebarWidth] = useState(288); // Default width (72 * 4 = 288px)
+  const [sidebarWidth, setSidebarWidth] = useState(288);
 
   const handleMouseDown = (e: any) => {
     e.preventDefault();
@@ -26,26 +27,12 @@ export const MinimSidebar = () => {
 
   return (
     <div className="flex">
-      <div style={{ width: `${sidebarWidth}px` }} className="flex-shrink-0">
-        <Accordion variant="splitted" selectionMode="multiple" className="flex">
-          <AccordionItem className="bg-content2" key="1" aria-label="Accordion 1" title="Accordion 1">
-            <Button variant="ghost" fullWidth radius="sm">
-              Browse S3
-            </Button>
-          </AccordionItem>
-          <AccordionItem className="bg-content2" key="2" aria-label="Accordion 2" title="Accordion 2">
-            Accordion test
-          </AccordionItem>
-          <AccordionItem className="bg-content2" key="3" aria-label="Accordion 3" title="Accordion 3">
-            Accordion test
-          </AccordionItem>
-        </Accordion>
+      <div style={{ width: sidebarWidth + 4 }} className="flex-shrink-0 pl-1">
+        <MinimFileExplorer width={sidebarWidth} />
       </div>
-      <Divider
-        orientation="vertical"
-        className="cursor-col-resize transition-colors duration-300 hover:bg-primary" // Smooth transition with primary color on hover
-        onMouseDown={handleMouseDown}
-      />
+      <div className="cursor-col-resize px-1" onMouseDown={handleMouseDown}>
+        <Divider orientation="vertical" />
+      </div>
     </div>
   );
 };

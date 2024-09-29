@@ -27,5 +27,6 @@ go.work.sum
 dist
 build/bin
 build/windows
-build/macos
+build/darwin
 build/linux
+build/README.md

@@ -1,8 +1,7 @@
 "use client";
 
-import { MinimFileExplorer } from "@/components/ui/MinimFileExplorer";
-import { useState } from "react";
 import { Divider } from "@nextui-org/divider";
+import { useState } from "react";
 
 export const MinimSidebar = () => {
   const [sidebarWidth, setSidebarWidth] = useState(288);
@@ -28,7 +27,6 @@ export const MinimSidebar = () => {
   return (
     <div className="flex">
       <div style={{ width: sidebarWidth + 4 }} className="flex-shrink-0 pl-1">
-        <MinimFileExplorer width={sidebarWidth} />
       </div>
       <div className="cursor-col-resize px-1" onMouseDown={handleMouseDown}>
         <Divider orientation="vertical" />

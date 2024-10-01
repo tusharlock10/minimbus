@@ -1,9 +1,9 @@
 "use client";
 
+import { Button } from "@nextui-org/button";
 import { FC } from "react";
-import { Tree, NodeRendererProps } from "react-arborist";
-import { FcFolder, FcOpenedFolder, FcFile } from "react-icons/fc";
-import { Button, ButtonGroup } from "@nextui-org/button";
+import { NodeRendererProps, Tree } from "react-arborist";
+import { FcFile, FcFolder, FcOpenedFolder } from "react-icons/fc";
 import { GoChevronDown } from "react-icons/go";
 
 const data = [
@@ -37,7 +37,7 @@ const data = [
   },
 ];
 
-const Node: FC<NodeRendererProps<{ id: string; name: string }>> = ({
+const Node: FC<NodeRendererProps<{ id: string; name: string; }>> = ({
   node,
   style,
 }) => {
@@ -72,7 +72,7 @@ const Node: FC<NodeRendererProps<{ id: string; name: string }>> = ({
   );
 };
 
-export const MinimFileExplorer: FC<{ width: number }> = ({ width }) => {
+export const MinimFileExplorer: FC<{ width: number; }> = ({ width }) => {
   return (
     <Tree
       initialData={data}

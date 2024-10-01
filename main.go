@@ -11,6 +11,8 @@ import (
 	"github.com/wailsapp/wails/v2/pkg/options/assetserver"
 	"github.com/wailsapp/wails/v2/pkg/options/mac"
 	"github.com/wailsapp/wails/v2/pkg/options/windows"
+
+	app "minimbus/src/app"
 )
 
 //go:embed all:frontend/dist
@@ -21,7 +23,7 @@ var icon []byte
 
 func main() {
 	// Create an instance of the app structure
-	app := NewApp()
+	minimbusApp := app.NewApp()
 
 	isWindows := false
 	if runtime.GOOS == "windows" {
@@ -49,14 +51,8 @@ func main() {
 		Menu:             nil,
 		Logger:           nil,
 		LogLevel:         logger.DEBUG,
-		OnStartup:        app.startup,
-		OnDomReady:       app.domReady,
-		OnBeforeClose:    app.beforeClose,
-		OnShutdown:       app.shutdown,
 		WindowStartState: options.Normal,
-		Bind: []interface{}{
-			app,
-		},
+		Bind:             []interface{}{minimbusApp},
 		// Windows platform specific options
 		Windows: &windows.Options{
 			WebviewIsTransparent:              true,

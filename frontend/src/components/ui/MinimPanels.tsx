@@ -11,7 +11,7 @@ export const MinimPanels = ({ children }: { children: ReactNode; }) => {
     <>
       <MinimNavBar />
       <PanelGroup direction="horizontal" tagName='div'>
-        <Panel defaultSize={30}>
+        <Panel defaultSize={30} minSize={20} maxSize={40} collapsedSize={0} collapsible>
           <MinimSidebar />
         </Panel>
         <PanelResizeHandle className='w-1 bg-content2' />

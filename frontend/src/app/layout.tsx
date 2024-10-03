@@ -1,6 +1,8 @@
 import { MinimPanels } from '@/components/ui/MinimPanels';
+import { ConfigProvider } from '@/providers/cloudServices/config';
 import { NextUIProvider } from "@/providers/nextui";
 import { RuntimeProvider } from "@/providers/runtime";
+
 import type { Metadata } from "next";
 
 import { Quicksand } from "next/font/google";
@@ -24,9 +26,11 @@ export default function RootLayout({
         <div className="w-screen h-screen overflow-hidden">
           <RuntimeProvider>
             <NextUIProvider>
-              <MinimPanels>
-                {children}
-              </MinimPanels>
+              <ConfigProvider>
+                <MinimPanels>
+                  {children}
+                </MinimPanels>
+              </ConfigProvider>
             </NextUIProvider>
           </RuntimeProvider>
         </div>

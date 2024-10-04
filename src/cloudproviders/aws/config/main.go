@@ -11,8 +11,8 @@ import (
 
 var awsConfig *aws.Config
 
-func GetConfig() aws.Config {
-	return *awsConfig
+func GetConfig() *aws.Config {
+	return awsConfig
 }
 
 func GetAvailableProfiles() (*[]string, error) {

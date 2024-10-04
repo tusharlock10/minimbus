@@ -1,31 +1,36 @@
 "use client";
 
-import { ConfigGetAvailableProfiles } from '@/wailsjs/go/app/App';
-import { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react';
+import { ConfigGetAvailableProfiles, ServicesSetSelectedProfile } from '@/wailsjs/go/app/App';
+import { createContext, ReactNode, useEffect, useState } from 'react';
 
 interface ConfigContextType {
-  availableConfigs: string[];
-  selectedConfig: string | null;
-  setSelectedConfig: Dispatch<SetStateAction<string | null>>;
+  availableProfiles: string[];
+  selectedProfile: string;
+  setSelectedProfile: (profile: string) => void;
 }
 
 export const ConfigContext = createContext<ConfigContextType>({
-  availableConfigs: [],
-  selectedConfig: null,
-  setSelectedConfig: () => { }
+  availableProfiles: [],
+  selectedProfile: '',
+  setSelectedProfile: () => { }
 });
 
 export const ConfigProvider = ({ children }: { children: ReactNode; }) => {
-  const [availableConfigs, _setAvailableConfigs] = useState<ConfigContextType['availableConfigs']>([]);
-  const [selectedConfig, setSelectedConfig] = useState<ConfigContextType['selectedConfig']>(null);
+  const [availableProfiles, _setAvailableProfiles] = useState<ConfigContextType['availableProfiles']>([]);
+  const [selectedProfile, _setSelectedProfile] = useState<ConfigContextType['selectedProfile']>('');
 
   useEffect(() => {
     // init config data in ConfigProvider
-    ConfigGetAvailableProfiles().then(_setAvailableConfigs);
+    ConfigGetAvailableProfiles().then(_setAvailableProfiles);
   }, []);
 
+  const setSelectedProfile = (profile: string) => {
+    _setSelectedProfile(profile);
+    ServicesSetSelectedProfile(profile);
+  };
+
   return (
-    <ConfigContext.Provider value={{ availableConfigs, selectedConfig, setSelectedConfig }}>
+    <ConfigContext.Provider value={{ availableProfiles, selectedProfile, setSelectedProfile }}>
       {children}
     </ConfigContext.Provider>
   );

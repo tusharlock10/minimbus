@@ -5,7 +5,7 @@ import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
 import { useContext } from 'react';
 
 export const ConfigAutocomplete = () => {
-  const { availableConfigs, selectedConfig, setSelectedConfig } = useContext(ConfigContext);
+  const { availableProfiles, selectedProfile, setSelectedProfile } = useContext(ConfigContext);
 
   return (
     <Autocomplete
@@ -13,17 +13,17 @@ export const ConfigAutocomplete = () => {
       placeholder='my-profile'
       labelPlacement='outside'
       className='py-2 px-4'
-      inputValue={selectedConfig ?? ""}
+      inputValue={selectedProfile}
       size='sm'
       variant='flat'
-      onInputChange={setSelectedConfig}
+      onInputChange={setSelectedProfile}
       radius='full'
       listboxProps={{
         emptyContent: "No profile found"
       }}
       onSelectionChange={console.log}
     >
-      {availableConfigs.map((config, index) => (
+      {availableProfiles.map((config, index) => (
         <AutocompleteItem onSubmit={console.log} key={index} value={config}>
           {config}
         </AutocompleteItem>

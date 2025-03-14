@@ -2,7 +2,7 @@
 
 import { MinimWindowsControls } from "@/components/ui/MinimWindowsControls";
 import { RuntimeContext } from "@/providers/runtime";
-import { Navbar, NavbarBrand } from "@nextui-org/react";
+import { Navbar, NavbarBrand } from "@heroui/react";
 import Image from "next/image";
 import { useContext } from "react";
 

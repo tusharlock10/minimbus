@@ -2,7 +2,7 @@
 
 import { MinimFileExplorer } from "@/components/ui/MinimFileExplorer";
 import { useState } from "react";
-import { Divider } from "@nextui-org/divider";
+import { Divider } from "@heroui/divider";
 
 export const MinimSidebar = () => {
   const [sidebarWidth, setSidebarWidth] = useState(288);

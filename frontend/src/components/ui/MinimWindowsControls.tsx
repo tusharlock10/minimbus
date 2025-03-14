@@ -1,9 +1,8 @@
 "use client";
 
 import { runtime } from '@/utils/runtime';
-import { Button, ButtonGroup } from '@nextui-org/button';
-import { Divider } from '@nextui-org/divider';
-import { } from '@nextui-org/react';
+import { Button, ButtonGroup } from "@heroui/button";
+import { Divider } from "@heroui/divider";
 import { Maximize2, Minimize2, Minus, X } from 'lucide-react';
 import { useState } from 'react';
 

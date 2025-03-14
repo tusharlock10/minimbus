@@ -1,4 +1,4 @@
-import { NextUIProvider } from "@/providers/nextui";
+import { HeroUIProvider } from "@/providers/heroui";
 import { RuntimeProvider } from "@/providers/runtime";
 import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
@@ -21,9 +21,9 @@ export default function RootLayout({
       <body className={qs.className}>
         <div className="w-screen h-screen overflow-hidden">
           <RuntimeProvider>
-            <NextUIProvider>
+            <HeroUIProvider>
               {children}
-            </NextUIProvider>
+            </HeroUIProvider>
           </RuntimeProvider>
         </div>
       </body>

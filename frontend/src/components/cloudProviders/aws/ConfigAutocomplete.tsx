@@ -1,7 +1,7 @@
 "use client";
 
 import { AwsConfigContext } from '@/providers/cloudProviders/aws/config';
-import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
+import { Autocomplete, AutocompleteItem } from "@heroui/autocomplete";
 import { useContext } from 'react';
 
 export const ConfigAutocomplete = () => {
@@ -16,7 +16,7 @@ export const ConfigAutocomplete = () => {
         onInputChange={setSelectedConfig}
       >
         {availableConfigs.map((config, index) => (
-          <AutocompleteItem key={index} value={config}>
+          <AutocompleteItem key={index}>
             {config}
           </AutocompleteItem>
         ))}

@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@nextui-org/button";
+import { Button } from "@heroui/button";
 import { FC } from "react";
 import { NodeRendererProps, Tree } from "react-arborist";
 import { FcFile, FcFolder, FcOpenedFolder } from "react-icons/fc";

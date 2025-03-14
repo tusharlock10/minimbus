@@ -60,7 +60,7 @@ func main() {
 			DisableWindowIcon:                 true,
 			ZoomFactor:                        1.0,
 			DisablePinchZoom:                  true,
-			DisableFramelessWindowDecorations: true,
+			DisableFramelessWindowDecorations: false,
 			BackdropType:                      windows.Acrylic,
 		},
 		// Mac platform specific options

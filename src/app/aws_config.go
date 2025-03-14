@@ -1,9 +1,9 @@
 package app
 
 import (
-	config "minimbus/src/cloudproviders/aws/config"
+	awsConfig "minimbus/src/cloudproviders/aws/config"
 )
 
-func (a *App) AwsConfigGetAvailableProfiles() (*[]string, error) {
-	return config.GetAvailableProfiles()
+func (a *App) ConfigGetAvailableProfiles() (*[]string, error) {
+	return awsConfig.GetAvailableProfiles()
 }
